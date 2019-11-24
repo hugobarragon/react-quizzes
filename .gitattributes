@@ -1,0 +1,2 @@
+# Vendoring antd css file
+src/antd.css linguist-vendored=true
