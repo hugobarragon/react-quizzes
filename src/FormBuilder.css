@@ -1,0 +1,51 @@
+.react-quizzes-builder form{
+  border: 1px solid #ddd;
+  background: #fafafa;
+  padding: 10px;
+  width: 100%;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+  min-height: 100%;
+}
+
+.react-quizzes-builder .ElementWrapper {
+  padding: 10px;
+}
+
+.react-quizzes-builder .ElementWrapper:hover {
+    cursor: grab;
+  box-shadow: inset 0 0 5px #ddd;
+  background: #fff;
+}
+
+
+.react-quizzes-builder,
+#root {
+  height: 100%;
+}
+
+.react-quizzes-builder .ant-form-item-label {
+  white-space: normal !important;
+  text-align: left !important;
+  line-height: normal !important;
+  word-break: break-all;
+}
+
+.react-quizzes-builder .ant-avatar.ant-avatar-icon {
+  color: inherit;
+  background: transparent;
+}
+.react-quizzes-builder .ant-avatar.ant-avatar-circle {
+  color: inherit;
+  background: transparent;
+}
+
+/* makes settings drawer wider */
+.ant-drawer-content-wrapper {
+  width: auto !important;
+  max-width: 500px;
+}
+
+/* makes questions display next to required symbol */
+.react-quizzes-builder .ant-form-item-no-colon label > p:nth-child(1) {
+  display: inline;
+}
