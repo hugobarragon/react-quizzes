@@ -1,5 +1,5 @@
 import React, { useContext, memo } from "react";
-import BuilderContext from "../FormBuilder/BuilderContext";
+import BuilderContext from "../QuizzBuilder/BuilderContext";
 import LocaleCode from "locale-code";
 import en_US from "./messages/en-US.json";
 

@@ -23,11 +23,11 @@
   height: 100%;
 }
 
-.react-quizzes-builder .ant-form-item-label {
+.react-quizzes-builder .ant-form-item-label,.react-quizzes-quizz .ant-form-item-label {
   white-space: normal !important;
   text-align: left !important;
   line-height: normal !important;
-  word-break: break-all;
+  word-break: break-all; 
 }
 
 .react-quizzes-builder .ant-avatar.ant-avatar-icon {
@@ -46,6 +46,6 @@
 }
 
 /* makes questions display next to required symbol */
-.react-quizzes-builder .ant-form-item-no-colon label > p:nth-child(1) {
+.react-quizzes-builder .ant-form-item-no-colon label > p:nth-child(1),.react-quizzes-quizz .ant-form-item-no-colon label > p:nth-child(1)  {
   display: inline;
 }

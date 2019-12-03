@@ -9,8 +9,9 @@ import BuilderContext from "./BuilderContext";
 import defaulttoolBox from "../ToolBox/index";
 import { usePrevious } from "../customHooks";
 import isEqual from "lodash.isequal";
+import "../FormBuilder.css";
 
-export default memo((props: any) => {
+export default memo(function (props: any) {
   const { toolBox, language, messages, onChange, initialValue } = props,
     [state, dispatch] = useReducer(reducer, initialState(initialValue)),
     contextValue = {

@@ -3,7 +3,6 @@ import React from "react";
 export default function() {
   return (
     <svg
-      className=""
       viewBox="64 64 896 896"
       width="1em"
       height="1em"
