@@ -3,13 +3,15 @@ import { Drawer } from "antd";
 import BottomButtons from "../../../../../ReusableComponents/BottomButtons";
 import SettingsForm from "./SettingsForm/SettingsForm";
 import TranslatedText from "../../../../../translations/TranslatedText";
-import BuilderContext from "../../../../BuilderContext";
+import QuizzContext, {
+  IQuizzBuilderContext
+} from "../../../../../QuizzContext";
 import { patchElement } from "../../../../reducer/actions";
 
 // applies delete and edit capabilities
 export default function SettingsDrawer(props: any) {
   const { closeDrawer, showDrawer, toolboxData, inputData } = props,
-    { dispatch } = useContext(BuilderContext),
+    { dispatch } = useContext(QuizzContext) as IQuizzBuilderContext,
     formRef = useRef() as any;
 
   function onFormSubmit(e: Event) {

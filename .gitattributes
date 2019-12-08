@@ -1,2 +1,3 @@
 # Vendoring antd css file
-src/antd.css linguist-vendored=true
+src/assets linguist-vendored=true
+public linguist-vendored=true

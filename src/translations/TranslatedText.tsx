@@ -1,5 +1,5 @@
 import React, { useContext, memo } from "react";
-import BuilderContext from "../QuizzBuilder/BuilderContext";
+import QuizzContext from "../QuizzContext";
 import LocaleCode from "locale-code";
 import en_US from "./messages/en-US.json";
 
@@ -16,7 +16,7 @@ export const defaultMessages: MessagesRecord = {
 
 function TranslatedText(props: { id: string }) {
   const { id } = props,
-    { messages, language } = useContext(BuilderContext),
+    { messages, language } = useContext(QuizzContext),
     { validateLanguageCode } = LocaleCode;
 
   // checks valid language

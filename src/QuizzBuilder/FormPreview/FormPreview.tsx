@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import Empty from "antd/es/empty/index";
 import Form from "antd/es/form/index";
-import BuilderContext from "../BuilderContext";
+import QuizzContext, { IQuizzBuilderContext } from "../../QuizzContext";
 import ElementWrapper from "./ElementWrapper/ElementWrapper";
 
 function PreviewForm(props: any) {
-  const { state, toolBox, language } = useContext(BuilderContext),
+  const { state, toolBox, language } = useContext(
+      QuizzContext
+    ) as IQuizzBuilderContext,
     { form } = props,
     form_data = state.get("data");
 

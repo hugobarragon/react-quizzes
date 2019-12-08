@@ -4,20 +4,16 @@ import Row from "antd/es/row/index";
 import Col from "antd/es/col/index";
 import ToolBox from "./ToolBoxContainer";
 import FormPreview from "./FormPreview/FormPreview";
-import { defaultMessages } from "../translations/TranslatedText";
-import BuilderContext from "./BuilderContext";
-import defaulttoolBox from "../ToolBox/index";
+import QuizzContext, { getDefaultContext } from "../QuizzContext";
 import { usePrevious } from "../customHooks";
 import isEqual from "lodash.isequal";
-import "../FormBuilder.css";
+import "../assets/FormBuilder.css";
 
-export default memo(function (props: any) {
-  const { toolBox, language, messages, onChange, initialValue } = props,
+export default memo(function(props: any) {
+  const { onChange, initialValue, ...rest } = props,
     [state, dispatch] = useReducer(reducer, initialState(initialValue)),
     contextValue = {
-      messages: messages || defaultMessages,
-      language: language || "en-US",
-      toolBox: toolBox || defaulttoolBox(),
+      ...getDefaultContext(rest),
       state,
       dispatch
     },
@@ -25,7 +21,6 @@ export default memo(function (props: any) {
   const previousFormData = usePrevious(formData);
 
   // effect to set
-
   useEffect(() => {
     // effect to notify parent that form data had a diff
     if (
@@ -40,7 +35,7 @@ export default memo(function (props: any) {
   // creates two colons 1 with toolbox and the other with the added inputs
   return (
     <div className="react-quizzes-builder">
-      <BuilderContext.Provider value={contextValue}>
+      <QuizzContext.Provider value={contextValue}>
         <Row style={{ height: "100%" }}>
           <Col sm={6} xs={24} order={0}>
             <ToolBox />
@@ -49,7 +44,7 @@ export default memo(function (props: any) {
             <FormPreview />
           </Col>
         </Row>
-      </BuilderContext.Provider>
+      </QuizzContext.Provider>
     </div>
   );
 });

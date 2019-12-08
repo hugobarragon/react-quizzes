@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import BuilderContext from "./BuilderContext";
+import QuizzContext, { IQuizzBuilderContext } from "../QuizzContext";
 import List from "antd/es/list/index";
 import { addElement } from "./reducer/actions";
 import uuidV4 from "uuid/v4";
@@ -17,7 +17,9 @@ interface IinputData {
 }
 
 export default (/* props */) => {
-  const { dispatch, toolBox } = useContext(BuilderContext);
+  const { dispatch, toolBox } = useContext(
+    QuizzContext
+  ) as IQuizzBuilderContext;
 
   function onClickHandler(item: any) {
     const elementOptions: IinputData = {

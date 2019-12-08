@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import Button from "antd/es/button/index";
 import Popconfirm from "antd/es/popconfirm/index";
 import { deleteElement } from "../../reducer/actions";
-import BuilderContext from "../../BuilderContext";
+import QuizzContext, { IQuizzBuilderContext } from "../../../QuizzContext";
 import TranslatedText from "../../../translations/TranslatedText";
 
 // applies delete and edit capabilities
 export default (props: any) => {
-  const { dispatch } = useContext(BuilderContext);
+  const { dispatch } = useContext(QuizzContext) as IQuizzBuilderContext;
 
   return (
     <Popconfirm
