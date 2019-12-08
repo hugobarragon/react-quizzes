@@ -1,4 +1,4 @@
-import { createContext, Context } from "react";
+import { createContext } from "react";
 import { MessagesRecord } from "./translations/TranslatedText";
 import { IState } from "./QuizzBuilder/reducer/reducer";
 import { IActions } from "./QuizzBuilder/reducer/actions";
@@ -30,7 +30,7 @@ function getDefaultContext({
   };
 }
 
-/* Quizz context */
+/* Quiz context */
 const QuizzContext = createContext<IQuizzContext | IQuizzBuilderContext>(
   getDefaultContext({})
 );
