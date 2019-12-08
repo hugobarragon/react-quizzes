@@ -3,6 +3,9 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic)](http://opensource.org/licenses/MIT)
 [![npm version](https://img.shields.io/badge/npm-v0.1.0-green.svg?style=plastic)](https://www.npmjs.com/package/react-quizzes)
 
+Demo:
+[![Edit react-quizzesExample](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/magical-chandrasekhar-88del?fontsize=14&hidenavigation=1&theme=dark)
+
 !["IMG"](./docs/FormBuilder-preview.PNG "example")
 
 React form builder and form delivery solution for admins and clients that makes forms easy peasy.
