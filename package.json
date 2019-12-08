@@ -1,8 +1,29 @@
 {
   "name": "react-quizzes",
   "version": "0.1.0",
+  "private": false,
+  "description": "React quizz/form builder and delivery solution",
   "main": "lib/index.js",
   "types": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugobarragon/react-quizzes.git"
+  },
+  "keywords": [
+    "react-form-builder",
+    "react form builder",
+    "react-quizzes",
+    "antd form builder",
+    "surveyjs",
+    "form builder"
+  ],
+  "author": "Hugo Barragon (http://github.com/hugobarragon)",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hugobarragon/react-quizzes/issues"
+  },
+  "homepage": "https://github.com/hugobarragon/react-quizzes",
   "dependencies": {
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.isequal": "^4.5.5",
