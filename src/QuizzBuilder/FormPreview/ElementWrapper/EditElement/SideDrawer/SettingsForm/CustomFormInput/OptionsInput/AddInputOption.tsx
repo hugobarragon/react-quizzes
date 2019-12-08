@@ -7,6 +7,7 @@ import FormItem from "antd/es/form/FormItem";
 import message from "antd/es/message";
 import TextWithInfo from "../../../../../../../../ReusableComponents/TextWithInfo";
 import LocaleCode from "locale-code";
+import TranslatedText from "../../../../../../../../translations/TranslatedText";
 
 export default ({ onAdd, languagesList, existingOptions }: any) => {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
@@ -65,7 +66,7 @@ export default ({ onAdd, languagesList, existingOptions }: any) => {
   return (
     <Fragment>
       <Button icon="plus" onClick={openDrawer}>
-        Adicionar
+        <TranslatedText id="btn.add"/>
       </Button>
       <Drawer
         title="Add New Option"

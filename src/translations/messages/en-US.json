@@ -21,5 +21,6 @@
   "settings.form.required": "Required",
   "confirm.action": "Are you sure？",
   "btn.yes": "Yes",
-  "btn.no": "No"
+  "btn.no": "No",
+  "btn.add": "Add"
 }
