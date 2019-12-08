@@ -1,6 +1,7 @@
 # react-quizzes
 
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic)](http://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/badge/npm-v0.1.0-green.svg?style=plastic)](https://www.npmjs.com/package/react-quizzes)
 
 !["IMG"](./docs/FormBuilder-preview.PNG "example")
 
