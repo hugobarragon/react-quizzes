@@ -1,0 +1,38 @@
+.settingsForm :global(.ant-drawer-wrapper-body) {
+  width: 100%;
+  height: 100%;
+}
+
+.settingsForm :global(.ant-drawer-body) {
+  height: calc(100% - 55px);
+}
+
+/* makes settings drawer wider */
+.settingsForm :global(.ant-drawer-content-wrapper) {
+  width: auto !important;
+  max-width: 500px;
+}
+
+@media only screen and (max-width: 500px) {
+  .settingsForm :global(.ant-drawer-content-wrapper) {
+    max-width: 300px;
+  }
+}
+/* Quill/tabs styles */
+.settingsForm :global(.ql-container):global(.ql-snow) {
+  max-height: 150px;
+  overflow: auto;
+}
+
+.settingsForm :global(.ant-tabs-nav) :global(.ant-tabs-tab) :global(.anticon) {
+  margin-right: 0px !important;
+}
+.settingsForm
+  :global(.ant-btn):global(.ant-btn-circle):global(.ant-btn-sm):global(.ant-btn-icon-only) {
+  font-size: x-small !important;
+}
+/* languages dropdown */
+.dropdownLanguages {
+  overflow-y: auto;
+  max-height: 50vh;
+}

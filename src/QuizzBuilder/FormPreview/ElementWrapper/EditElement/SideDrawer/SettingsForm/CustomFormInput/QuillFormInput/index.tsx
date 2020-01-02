@@ -1,13 +1,14 @@
 import React, { forwardRef } from "react";
 import ReactQuill, { Quill } from "react-quill";
-import Tabs from "antd/es/tabs/index";
-import Tooltip from "antd/es/tooltip/index";
+import { Tabs, Tooltip, Row, Popconfirm, Button } from "antd";
 import "react-quill/dist/quill.snow.css";
 import "./quillFormInput.css";
-import LocaleCode from "locale-code";
+import ISO6391 from "iso-639-1";
+import AddDropdown from "./AddDropdown";
+import TranslatedText from "../../../../../../../../translations/TranslatedText";
 
-const getLanguageNativeName = LocaleCode.getLanguageNativeName;
 const { TabPane } = Tabs;
+const { getNativeName } = ISO6391;
 
 const Size = Quill.import("attributors/style/size");
 const text_size = [
@@ -64,9 +65,16 @@ const modules = {
 };
 
 export default forwardRef((props: any, ref) => {
-  const { value, defaultValue, onChange, currentLanguage, setLanguage } = props,
-    questionLanguages = Object.keys(value);
-  // console.log("quill props", props);
+  const {
+    value,
+    defaultValue,
+    onChange,
+    currentLanguage,
+    setLanguage,
+    onNewLanguage,
+    onRemoveLanguage
+  } = props;
+  const questionLanguages: Array<string> = Object.keys(value);
 
   function onChangeHandler(
     content: string
@@ -74,23 +82,52 @@ export default forwardRef((props: any, ref) => {
     //  source: Quill.Sources,
     // editor: UnprivilegedEditor
   ) {
-    // console.log("onchange", content);
     onChange({ ...value, [currentLanguage]: content });
   }
 
+  function preventPropagation(e?: React.MouseEvent<HTMLElement, MouseEvent>) {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  }
   return (
     <Tabs
+      ref={ref as any}
       onChange={setLanguage}
       activeKey={currentLanguage}
-      type="editable-card"
-      // onEdit={this.onEdit} @TODO add/remove questions in multiple languages
+      tabBarExtraContent={
+        <AddDropdown disabled={questionLanguages} onChange={onNewLanguage} />
+      }
     >
       {questionLanguages.map(lang => (
         <TabPane
           // native language name
-          tab={<Tooltip title={lang}>{getLanguageNativeName(lang)}</Tooltip>}
+          tab={
+            <Row>
+              <Tooltip title={lang}>{getNativeName(lang)}</Tooltip>
+              &nbsp;
+              {questionLanguages.length > 1 ? (
+                <Popconfirm
+                  title={<TranslatedText id="confirm.action" />}
+                  okText={<TranslatedText id="btn.yes" />}
+                  cancelText={<TranslatedText id="btn.no" />}
+                  onConfirm={e => {
+                    preventPropagation(e);
+                    onRemoveLanguage(lang);
+                  }}
+                >
+                  <Button
+                    shape="circle"
+                    icon="close"
+                    size="small"
+                    onClick={preventPropagation}
+                  />
+                </Popconfirm>
+              ) : null}
+            </Row>
+          }
           key={lang}
-          closable
         >
           <ReactQuill
             theme="snow"

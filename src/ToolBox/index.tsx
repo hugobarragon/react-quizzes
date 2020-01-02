@@ -23,19 +23,19 @@ import multiLineInputIcon from "./CustomIcons/multiLineInputIcon";
 function _defaultItems() {
   // deafult sample question
   const questions = {
-    "en-US": "Sample question ?",
-    "pt-BR": "Pergunta exemplo ?"
+    en: "Sample question ?",
+    pt: "Pergunta exemplo ?"
   };
 
   const options = [
     {
       value: "1",
-      text: {...questions}
+      text: { ...questions }
     },
     {
       value: "2",
-      text: {...questions}
-    },
+      text: { ...questions }
+    }
   ];
 
   return [

@@ -6,8 +6,10 @@ import Input from "antd/es/input/Input";
 import FormItem from "antd/es/form/FormItem";
 import message from "antd/es/message";
 import TextWithInfo from "../../../../../../../../ReusableComponents/TextWithInfo";
-import LocaleCode from "locale-code";
+import ISO6391 from "iso-639-1";
 import TranslatedText from "../../../../../../../../translations/TranslatedText";
+
+const { getNativeName } = ISO6391;
 
 export default ({ onAdd, languagesList, existingOptions }: any) => {
   const [drawerVisibility, setDrawerVisibility] = useState(false);
@@ -66,7 +68,7 @@ export default ({ onAdd, languagesList, existingOptions }: any) => {
   return (
     <Fragment>
       <Button icon="plus" onClick={openDrawer}>
-        <TranslatedText id="btn.add"/>
+        <TranslatedText id="btn.add" />
       </Button>
       <Drawer
         title="Add New Option"
@@ -80,7 +82,7 @@ export default ({ onAdd, languagesList, existingOptions }: any) => {
             return (
               <Fragment key={i}>
                 <TextWithInfo title={language}>
-                  {LocaleCode.getLanguageNativeName(language)}
+                  {getNativeName(language)}
                 </TextWithInfo>
                 <Input onChange={e => onChangeInput(e, language)} />
               </Fragment>
