@@ -4,9 +4,7 @@ import QuizzContext, {
   IQuizzContext
 } from "../QuizzContext";
 import TranslatedText from "../translations/TranslatedText";
-import Empty from "antd/es/empty/index";
-import Button from "antd/es/button/index";
-import Form from "antd/es/form/index";
+import { Empty, Button, Form } from "antd";
 
 class Quizz extends PureComponent<any, any> {
   // submit handler
@@ -75,4 +73,4 @@ class Quizz extends PureComponent<any, any> {
   }
 }
 
-export default Form.create()(Quizz);
+export default Form.create<any>()(Quizz);

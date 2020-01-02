@@ -53,7 +53,7 @@ Props         | Type     | Default | Description
 `onChange`    | `Function` | ` `    | will returns builded quizz in QuizzData type
 `initialValue`| `QuizzData`| ``    | initial value to QuizzBuilder, useful if user wants to edit a saved quizz 
 `toolBox`     | `QuizzToolBox`| `default QuizzToolBox`    | list of inputs to use, defaults to react-quizz but custom inputs can be supplied
-`language`    | `string`| `en-US`    | Language that QuizzBuilder will show
+`language`    | `string`| `en`    | Language that QuizzBuilder will show
 `messages`    | `QuizzMessages`| `default QuizzMessages`    | Object with each language and each language with each text translation
 
 # Quiz
@@ -76,7 +76,7 @@ Props         | Type        | Default | Description
 `onSubmit`    | `Fucntion` | ` `     | returns the submitted form values
 `submitButton`| `boolean` | ` true`     | shows/hides default submit button*
 `toolBox`     | `QuizzToolBox`| `default QuizzToolBox`    | list of inputs to use, defaults to react-quizz but custom inputs can be supplied
-`language`    | `string`| `en-US`    | Language that Quiz questions and options will show 
+`language`    | `string`| `en`    | Language that Quiz questions and options will show 
 `messages`    | `QuizzMessages`| `default QuizzMessages`    | Object with each language and each language with each text translation
 
 * if submit button is hidden the default onSubmit will not work, you must implement a custom submit
@@ -166,7 +166,7 @@ toolbox.push(
       key: "MyInput_",
       name: "toolbox.input.name", // id of translation
       questions: {
-            "en-US": "How are you ?"
+            "en": "How are you ?"
             ... 
         },
       // description: "toolbox.headertext.description", // desciption under input on toolbox

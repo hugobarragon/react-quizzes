@@ -25,7 +25,7 @@ function getDefaultContext({
 }: Partial<IContextProps>) {
   return {
     messages: messages || defaultMessages,
-    language: language || "en-US",
+    language: language || "en",
     toolBox: toolBox || defaulttoolBox()
   };
 }

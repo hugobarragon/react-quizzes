@@ -1,7 +1,9 @@
 import React, { useContext, memo } from "react";
 import QuizzContext from "../QuizzContext";
-import LocaleCode from "locale-code";
-import en_US from "./messages/en-US.json";
+import ISO6391 from "iso-639-1";
+import en from "./messages/en.json";
+
+const { validate } = ISO6391;
 
 interface IdMessage {
   [key: string]: string;
@@ -11,16 +13,15 @@ export interface MessagesRecord {
 }
 
 export const defaultMessages: MessagesRecord = {
-  "en-US": en_US
+  en: en
 };
 
 function TranslatedText(props: { id: string }) {
   const { id } = props,
-    { messages, language } = useContext(QuizzContext),
-    { validateLanguageCode } = LocaleCode;
+    { messages, language } = useContext(QuizzContext);
 
   // checks valid language
-  if (typeof language !== "string" || !validateLanguageCode(language)) {
+  if (typeof language !== "string" || !validate(language)) {
     const no_language_error =
       "language supplied not string or not complience with ISO";
     console.error(no_language_error);

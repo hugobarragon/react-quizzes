@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { Drawer } from "antd";
+import { Drawer, Row } from "antd";
 import BottomButtons from "../../../../../ReusableComponents/BottomButtons";
 import SettingsForm from "./SettingsForm/SettingsForm";
 import TranslatedText from "../../../../../translations/TranslatedText";
@@ -7,6 +7,7 @@ import QuizzContext, {
   IQuizzBuilderContext
 } from "../../../../../QuizzContext";
 import { patchElement } from "../../../../reducer/actions";
+import styles from "./drawer.module.css";
 
 // applies delete and edit capabilities
 export default function SettingsDrawer(props: any) {
@@ -23,7 +24,7 @@ export default function SettingsDrawer(props: any) {
       if (!err) {
         // adds to reducer
         dispatch(patchElement(inputData.id, values));
-        // close drawer had no erros
+        // close drawer had no errors
         closeDrawer();
       }
     });
@@ -35,13 +36,23 @@ export default function SettingsDrawer(props: any) {
       onClose={closeDrawer}
       visible={showDrawer}
       destroyOnClose
+      className={styles.settingsForm}
     >
-      <SettingsForm
-        wrappedComponentRef={formRef}
-        toolboxData={toolboxData}
-        inputData={inputData}
-      />
-      <BottomButtons onClose={closeDrawer} onSubmit={onFormSubmit} />
+      <Row style={{ height: "90%", overflowY: "auto" }}>
+        <SettingsForm
+          wrappedComponentRef={formRef}
+          toolboxData={toolboxData}
+          inputData={inputData}
+        />
+      </Row>
+      <Row
+        type="flex"
+        justify="space-between"
+        align="bottom"
+        style={{ height: "10%" }}
+      >
+        <BottomButtons onClose={closeDrawer} onSubmit={onFormSubmit} />
+      </Row>
     </Drawer>
   );
 }

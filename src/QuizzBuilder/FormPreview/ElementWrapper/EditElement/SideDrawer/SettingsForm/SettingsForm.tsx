@@ -1,13 +1,17 @@
 import React, { PureComponent } from "react";
-import { WrappedFormUtils } from "antd/lib/form/Form";
+import { FormComponentProps } from "antd/lib/form/Form";
 import { Form, Checkbox } from "antd";
 import QuillFormInput from "./CustomFormInput/QuillFormInput";
 import TranslatedText from "../../../../../../translations/TranslatedText";
 import OptionsInput from "./CustomFormInput/OptionsInput/OptionsInput";
+import cloneDeep from "lodash.clonedeep";
 
 // this must be a class component because of parent components acessing the prop "wrappedComponentRef"
 // to be able to access form props and make a custom submit on parent for example.
-class DrawerForm extends PureComponent<WrappedFormUtils & any, any> {
+interface DrawerFormProps extends FormComponentProps {
+  [k: string]: any;
+}
+class DrawerForm extends PureComponent<DrawerFormProps, any> {
   constructor(props: any) {
     super(props);
 
@@ -21,6 +25,61 @@ class DrawerForm extends PureComponent<WrappedFormUtils & any, any> {
 
   setLanguage = (currentLanguage: any) => {
     this.setState({ currentLanguage });
+  };
+
+  onNewLanguage = (lang: string) => {
+    const { form, inputData } = this.props;
+    const { setFieldsValue, getFieldsValue } = form;
+
+    const fieldsNames = ["questions"];
+    if (inputData.options) {
+      fieldsNames.push("options");
+    }
+    const { questions, options } = cloneDeep(getFieldsValue(fieldsNames));
+    questions[lang] = "";
+
+    if (options) {
+      for (let index = 0; index < options.length; index++) {
+        options[index].text[lang] = "";
+      }
+    }
+
+    setFieldsValue({ questions, options });
+    this.setState({
+      languagesList: Object.keys(questions)
+    });
+  };
+
+  onRemoveLanguage = (lang: string) => {
+    /* REMOVE LANGUAGE HERE */
+    const { form, inputData } = this.props;
+    const { setFieldsValue, getFieldsValue } = form;
+
+    const fieldsNames = ["questions"];
+    if (inputData.options) {
+      fieldsNames.push("options");
+    }
+    const { questions, options } = cloneDeep(getFieldsValue(fieldsNames));
+
+    delete questions[lang];
+
+    if (options) {
+      for (let index = 0; index < options.length; index++) {
+        delete options[index].text[lang];
+      }
+    }
+    const listLanguages = Object.keys(questions);
+
+    this.setState(
+      {
+        currentLanguage: listLanguages[0],
+        languagesList: listLanguages
+      },
+      () => {
+        // fix's bug that some times one of the updates was lost
+        setFieldsValue({ questions, options });
+      }
+    );
   };
 
   render() {
@@ -43,6 +102,8 @@ class DrawerForm extends PureComponent<WrappedFormUtils & any, any> {
             <QuillFormInput
               currentLanguage={currentLanguage}
               setLanguage={this.setLanguage}
+              onNewLanguage={this.onNewLanguage}
+              onRemoveLanguage={this.onRemoveLanguage}
             />
           )}
         </Form.Item>
@@ -76,4 +137,4 @@ class DrawerForm extends PureComponent<WrappedFormUtils & any, any> {
   }
 }
 
-export default Form.create<any>()(DrawerForm);
+export default Form.create<DrawerFormProps>()(DrawerForm);
