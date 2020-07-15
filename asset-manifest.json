@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.bd178340.chunk.css",
-    "main.js": "/static/js/main.4cd9f8e3.chunk.js",
-    "main.js.map": "/static/js/main.4cd9f8e3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.d9e40e89.js",
-    "runtime-main.js.map": "/static/js/runtime-main.d9e40e89.js.map",
-    "static/css/2.3c515868.chunk.css": "/static/css/2.3c515868.chunk.css",
-    "static/js/2.21d9e861.chunk.js": "/static/js/2.21d9e861.chunk.js",
-    "static/js/2.21d9e861.chunk.js.map": "/static/js/2.21d9e861.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.7d00b3653390415f17013c7c85df8407.js": "/precache-manifest.7d00b3653390415f17013c7c85df8407.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.3c515868.chunk.css.map": "/static/css/2.3c515868.chunk.css.map",
-    "static/css/main.bd178340.chunk.css.map": "/static/css/main.bd178340.chunk.css.map",
-    "static/js/2.21d9e861.chunk.js.LICENSE.txt": "/static/js/2.21d9e861.chunk.js.LICENSE.txt"
+    "main.css": "/react-quizzes/static/css/main.bd178340.chunk.css",
+    "main.js": "/react-quizzes/static/js/main.4cd9f8e3.chunk.js",
+    "main.js.map": "/react-quizzes/static/js/main.4cd9f8e3.chunk.js.map",
+    "runtime-main.js": "/react-quizzes/static/js/runtime-main.8d04f349.js",
+    "runtime-main.js.map": "/react-quizzes/static/js/runtime-main.8d04f349.js.map",
+    "static/css/2.3c515868.chunk.css": "/react-quizzes/static/css/2.3c515868.chunk.css",
+    "static/js/2.c9934d86.chunk.js": "/react-quizzes/static/js/2.c9934d86.chunk.js",
+    "static/js/2.c9934d86.chunk.js.map": "/react-quizzes/static/js/2.c9934d86.chunk.js.map",
+    "index.html": "/react-quizzes/index.html",
+    "precache-manifest.b0eb748b629ceb502247ce48f3df4a64.js": "/react-quizzes/precache-manifest.b0eb748b629ceb502247ce48f3df4a64.js",
+    "service-worker.js": "/react-quizzes/service-worker.js",
+    "static/css/2.3c515868.chunk.css.map": "/react-quizzes/static/css/2.3c515868.chunk.css.map",
+    "static/css/main.bd178340.chunk.css.map": "/react-quizzes/static/css/main.bd178340.chunk.css.map",
+    "static/js/2.c9934d86.chunk.js.LICENSE.txt": "/react-quizzes/static/js/2.c9934d86.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d9e40e89.js",
+    "static/js/runtime-main.8d04f349.js",
     "static/css/2.3c515868.chunk.css",
-    "static/js/2.21d9e861.chunk.js",
+    "static/js/2.c9934d86.chunk.js",
     "static/css/main.bd178340.chunk.css",
     "static/js/main.4cd9f8e3.chunk.js"
   ]

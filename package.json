@@ -23,6 +23,7 @@
   "bugs": {
     "url": "https://github.com/hugobarragon/react-quizzes/issues"
   },
+  "homepage": "http://hugobarragon.github.io/react-quizzes",
   "dependencies": {
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.isequal": "^4.5.5",
@@ -54,6 +55,8 @@
     "buildWeb": "react-scripts build",
     "build": "tsc -p .",
     "postbuild": "copyfiles  -u 1 src/**/*.css lib/",
+    "predeploy": "npm run buildWeb",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
