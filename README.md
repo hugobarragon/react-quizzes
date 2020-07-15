@@ -1,7 +1,7 @@
 # react-quizzes
 
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic)](http://opensource.org/licenses/MIT)
-[![npm version](https://img.shields.io/badge/npm-v0.1.0-green.svg?style=plastic)](https://www.npmjs.com/package/react-quizzes)
+[![npm version](https://img.shields.io/badge/npm-v0.2.0-green.svg?style=plastic)](https://www.npmjs.com/package/react-quizzes)
 
 Demo:
 [![Edit react-quizzesExample](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/magical-chandrasekhar-88del?fontsize=14&hidenavigation=1&theme=dark)
@@ -12,6 +12,7 @@ React form builder and form delivery solution for admins and clients that makes 
 Inspired by abandoned project: https://github.com/blackjk3/react-form-builder
 
 Advantages:
+
 - Supports custom inputs
 - Rich text questions
 - Supports custom styles
@@ -36,84 +37,79 @@ For custom styling check [`Custom styles`](#Custom-styles) section
 
 `react-quizzes` requires `react` and `react-dom` as [`peerDependency`](https://docs.npmjs.com/files/package.json#peerdependencies)
 
-# QuizzBuilder 
+# QuizzBuilder
 
 ```html
-    import { QuizzBuilder } from "react-quizzes"
-    <QuizzBuilder 
-        onChange={(QuizzData) => console.log(form)} 
-    />
-````
+import { QuizzBuilder } from "react-quizzes" <QuizzBuilder onChange={(QuizzData)
+=> console.log(form)} />
+```
 
 ## API
+
 QuizzBuilder component objective is to provide the user a nice and smooth interface to build quizzes
 
-Props         | Type     | Default | Description
-------------- | -------- | ------- | -------------
-`onChange`    | `Function` | ` `    | will returns builded quizz in QuizzData type
-`initialValue`| `QuizzData`| ``    | initial value to QuizzBuilder, useful if user wants to edit a saved quizz 
-`toolBox`     | `QuizzToolBox`| `default QuizzToolBox`    | list of inputs to use, defaults to react-quizz but custom inputs can be supplied
-`language`    | `string`| `en`    | Language that QuizzBuilder will show
-`messages`    | `QuizzMessages`| `default QuizzMessages`    | Object with each language and each language with each text translation
+| Props          | Type            | Default                                                                        | Description                                                                      |
+| -------------- | --------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| `onChange`     | `Function`      | ``                                                                             | will returns builded quizz in QuizzData type                                     |
+| `initialValue` | `QuizzData`     | `` | initial value to QuizzBuilder, useful if user wants to edit a saved quizz |
+| `toolBox`      | `QuizzToolBox`  | `default QuizzToolBox`                                                         | list of inputs to use, defaults to react-quizz but custom inputs can be supplied |
+| `language`     | `string`        | `en`                                                                           | Language that QuizzBuilder will show                                             |
+| `messages`     | `QuizzMessages` | `default QuizzMessages`                                                        | Object with each language and each language with each text translation           |
 
 # Quiz
 
 A component that provides the final user a quiz/form to fill
 
 ```html
-    import { Quiz } from "react-quizzes"
-    <Quiz
-        data={Mockdata}
-        onSubmit={(values) => console.log("form submited values", values)}
-    />
-````
+import { Quiz } from "react-quizzes" <Quiz data={Mockdata} onSubmit={(values) =>
+console.log("form submited values", values)} />
+```
 
 ## API
 
-Props         | Type        | Default | Description
-------------- | ----------- | ------- | -------------
-`data`        | `QuizzData` | ` `     | data to build the final user form to be filled
-`onSubmit`    | `Fucntion` | ` `     | returns the submitted form values
-`submitButton`| `boolean` | ` true`     | shows/hides default submit button*
-`toolBox`     | `QuizzToolBox`| `default QuizzToolBox`    | list of inputs to use, defaults to react-quizz but custom inputs can be supplied
-`language`    | `string`| `en`    | Language that Quiz questions and options will show 
-`messages`    | `QuizzMessages`| `default QuizzMessages`    | Object with each language and each language with each text translation
+| Props          | Type            | Default                 | Description                                                                      |
+| -------------- | --------------- | ----------------------- | -------------------------------------------------------------------------------- |
+| `data`         | `QuizzData`     | ``                      | data to build the final user form to be filled                                   |
+| `onSubmit`     | `Fucntion`      | ``                      | returns the submitted form values                                                |
+| `submitButton` | `boolean`       | `true`                  | shows/hides default submit button\*                                              |
+| `toolBox`      | `QuizzToolBox`  | `default QuizzToolBox`  | list of inputs to use, defaults to react-quizz but custom inputs can be supplied |
+| `language`     | `string`        | `en`                    | Language that Quiz questions and options will show                               |
+| `messages`     | `QuizzMessages` | `default QuizzMessages` | Object with each language and each language with each text translation           |
 
-* if submit button is hidden the default onSubmit will not work, you must implement a custom submit
+- if submit button is hidden the default onSubmit will not work, you must implement a custom submit
 
 ## Custom submit
 
-There is a prop `wrappedComponentRef` that gives you access to make basically anything, reset form, set initial values change the values based on something.... 
+There is a prop `wrappedComponentRef` that gives you access to make basically anything, reset form, set initial values change the values based on something....
 
 [`wrappedComponentRef`](https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140)
 
 ```jsx
-import { Quiz } from "react-quizzes"
+import { Quiz } from "react-quizzes";
 
-saveQuizRef =(quizRef) => {
-    // saves Quizz component ref
-    this.quizRef = quizRef;
-}
-// custom submit function 
-handleCustomSubmit= () =>{
-    const form = this.quizRef.props.form;
-    form.validateFields((err, values) => {
-        if (!err) { 
-            // if no errors, no errors means required answers are filled
-            console.log('Received values of form: ', values);
-            form.resetFields(); // resets form after recieveing values
-        } 
-       
-    });
-}
+saveQuizRef = quizRef => {
+  // saves Quizz component ref
+  this.quizRef = quizRef;
+};
+// custom submit function
+handleCustomSubmit = () => {
+  const form = this.quizRef.props.form;
+  form.validateFields((err, values) => {
+    if (!err) {
+      // if no errors, no errors means required answers are filled
+      console.log("Received values of form: ", values);
+      form.resetFields(); // resets form after recieveing values
+    }
+  });
+};
 <Fragment>
-    <Quiz
-        wrappedComponentRef={this.saveQuizRef}
-        submitButton={false} // hides inside submit button
-        data={Mockdata}
-    />
-    <Button onClick={this.handleCustomSubmit}>Custom Submit btn</Button>
-</Fragment>
+  <Quiz
+    wrappedComponentRef={this.saveQuizRef}
+    submitButton={false} // hides inside submit button
+    data={Mockdata}
+  />
+  <Button onClick={this.handleCustomSubmit}>Custom Submit btn</Button>
+</Fragment>;
 ```
 
 # Translations/Internationalization
@@ -138,7 +134,7 @@ function App() {
     return <QuizzBuilder
             onChange={(form) => console.log(form)}
             language="pt-PT"
-            messages={toolBoxItems} 
+            messages={toolBoxItems}
         />
 }
 ```
@@ -167,7 +163,7 @@ toolbox.push(
       name: "toolbox.input.name", // id of translation
       questions: {
             "en": "How are you ?"
-            ... 
+            ...
         },
       // description: "toolbox.headertext.description", // desciption under input on toolbox
       icon: <Avatar icon="line" />, // this will go to Dom so can be string|| jsx component
@@ -183,6 +179,7 @@ function App() {
         />
 }
 ```
+
 [MyInput example](./src/ToolBox/Components/TextInput.tsx)
 
 Example:
