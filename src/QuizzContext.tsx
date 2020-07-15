@@ -11,22 +11,22 @@ interface IContextProps {
   messages: MessagesRecord;
 }
 
-type IQuizzContext = IContextProps;
-type IQuizzBuilderContext = IContextProps & {
+export type IQuizzContext = IContextProps;
+export type IQuizzBuilderContext = IContextProps & {
   state: IState;
   dispatch: (arg: IActions) => void;
 };
 
 // default context
-function getDefaultContext({
+export function getDefaultContext({
   messages,
   language,
-  toolBox
+  toolBox,
 }: Partial<IContextProps>) {
   return {
     messages: messages || defaultMessages,
     language: language || "en",
-    toolBox: toolBox || defaulttoolBox()
+    toolBox: toolBox || defaulttoolBox(),
   };
 }
 
@@ -35,5 +35,4 @@ const QuizzContext = createContext<IQuizzContext | IQuizzBuilderContext>(
   getDefaultContext({})
 );
 
-export { IQuizzContext, IQuizzBuilderContext, getDefaultContext };
 export default QuizzContext;
