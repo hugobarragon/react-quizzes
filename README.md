@@ -117,23 +117,26 @@ handleCustomSubmit = () => {
 New languages support can be added or replace the existing ones  
 [Existing translations](./src/translations/TranslatedText.tsx#defaultMessages)
 
+
+[![Edit react-quizzesExample RU locale](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-quizzesexample-ru-locale-wx50m?fontsize=14&hidenavigation=1&theme=dark)
+
 ```javascript
 import { QuizzBuilder } from "react-quizzes"
-import { defaultMessages } from "react-quizzes/translations/TranslatedText";
+import { defaultMessages } from "react-quizzes/lib/translations/TranslatedText";
 
 // existing keys can be found on above link
-defaultMessages["pt-PT"]={
-  "toolbox.textinput.name": "Text Input",
-  "confirm.action": "Are you sure？",
-  "btn.yes": "Yes",
-  "btn.no": "No",
-  "btn.add": "Add",
+defaultMessages["pt"]={
+  "toolbox.textinput.name": "Caixa de Texto",
+  "confirm.action": "Tem a  certeza?",
+  "btn.yes": "Sim",
+  "btn.no": "Não",
+  "btn.add": "Adicionar",
   ...
 }
 function App() {
     return <QuizzBuilder
             onChange={(form) => console.log(form)}
-            language="pt-PT"
+            language="pt"
             messages={toolBoxItems}
         />
 }
