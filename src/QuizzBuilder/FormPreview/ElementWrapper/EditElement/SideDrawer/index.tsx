@@ -4,7 +4,7 @@ import BottomButtons from "../../../../../ReusableComponents/BottomButtons";
 import SettingsForm from "./SettingsForm/SettingsForm";
 import TranslatedText from "../../../../../translations/TranslatedText";
 import QuizzContext, {
-  IQuizzBuilderContext
+  IQuizzBuilderContext,
 } from "../../../../../QuizzContext";
 import { patchElement } from "../../../../reducer/actions";
 import styles from "./drawer.module.css";
@@ -45,12 +45,7 @@ export default function SettingsDrawer(props: any) {
           inputData={inputData}
         />
       </Row>
-      <Row
-        type="flex"
-        justify="space-between"
-        align="bottom"
-        style={{ height: "10%" }}
-      >
+      <Row justify="space-between" align="bottom" style={{ height: "10%" }}>
         <BottomButtons onClose={closeDrawer} onSubmit={onFormSubmit} />
       </Row>
     </Drawer>

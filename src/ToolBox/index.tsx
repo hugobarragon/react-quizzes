@@ -1,6 +1,6 @@
 import React from "react";
-import Avatar from "antd/es/avatar/index";
-import Icon from "antd/es/icon/index";
+import { Avatar } from "antd";
+import Icon from "@ant-design/icons";
 import TextInput from "./Components/TextInput";
 import HeaderText from "./Components/HeaderText";
 import Label from "./Components/Label";
@@ -24,18 +24,18 @@ function _defaultItems() {
   // deafult sample question
   const questions = {
     en: "Sample question ?",
-    pt: "Pergunta exemplo ?"
+    pt: "Pergunta exemplo ?",
   };
 
   const options = [
     {
       value: "1",
-      text: { ...questions }
+      text: { ...questions },
     },
     {
       value: "2",
-      text: { ...questions }
-    }
+      text: { ...questions },
+    },
   ];
 
   return [
@@ -50,7 +50,7 @@ function _defaultItems() {
         </Avatar>
       ), // this will go to Dom so can be string|| jsx component
       field_name: "header_text_", // will add a generated uuidv4
-      Component: HeaderText // component not instanciated
+      Component: HeaderText, // component not instanciated
     },
     {
       key: "LabelText",
@@ -59,7 +59,7 @@ function _defaultItems() {
       // description: "toolbox.label.description", // desciption under input on toolbox
       icon: <Avatar icon="font-colors" />, // this will go to Dom so can be string|| jsx component
       field_name: "label_", // will add a generated uuidv4
-      Component: Label // component not instanciated
+      Component: Label, // component not instanciated
     },
     {
       key: "Divider",
@@ -68,7 +68,7 @@ function _defaultItems() {
       // description: "toolbox.label.description", // desciption under input on toolbox
       icon: <Avatar icon="line" />, // this will go to Dom so can be string|| jsx component
       field_name: "divider_", // will add a generated uuidv4
-      Component: Divider // component not instanciated
+      Component: Divider, // component not instanciated
     },
     {
       key: "Select",
@@ -78,7 +78,7 @@ function _defaultItems() {
       // description: "toolbox.label.description", // desciption under input on toolbox
       icon: <Avatar icon="down-square" />, // this will go to Dom so can be string|| jsx component
       field_name: "select_", // will add a generated uuidv4
-      Component: Select // component not instanciated
+      Component: Select, // component not instanciated
     },
     {
       key: "Tags",
@@ -88,7 +88,7 @@ function _defaultItems() {
       // description: "toolbox.label.description", // desciption under input on toolbox
       icon: <Avatar icon="tags" />, // this will go to Dom so can be string|| jsx component
       field_name: "tags_", // will add a generated uuidv4
-      Component: Tags // component not instanciated
+      Component: Tags, // component not instanciated
     },
     {
       key: "Checkboxes",
@@ -98,7 +98,7 @@ function _defaultItems() {
       // description: "toolbox.label.description", // desciption under input on toolbox
       icon: <Avatar icon="check-circle" />, // this will go to Dom so can be string|| jsx component
       field_name: "checkboxes_", // will add a generated uuidv4
-      Component: Checkboxes // component not instanciated
+      Component: Checkboxes, // component not instanciated
     },
     {
       key: "RadioButtons",
@@ -112,7 +112,7 @@ function _defaultItems() {
         </Avatar>
       ), // this will go to Dom so can be string|| jsx component
       field_name: "radiobuttons_", // will add a generated uuidv4
-      Component: RadioButtons // component not instanciated
+      Component: RadioButtons, // component not instanciated
     },
     {
       key: "TextInput",
@@ -125,7 +125,7 @@ function _defaultItems() {
         </Avatar>
       ), // this will go to Dom so can be string|| jsx component
       field_name: "textinput_", // will add a generated uuidv4
-      Component: TextInput // component not instanciated
+      Component: TextInput, // component not instanciated
     },
     {
       key: "NumberInput",
@@ -138,7 +138,7 @@ function _defaultItems() {
         </Avatar>
       ), // this will go to Dom so can be string|| jsx component
       field_name: "numberinput_", // will add a generated uuidv4
-      Component: NumberInput // component not instanciated
+      Component: NumberInput, // component not instanciated
     },
     {
       key: "MultiLineInput",
@@ -151,7 +151,7 @@ function _defaultItems() {
         </Avatar>
       ), // this will go to Dom so can be string|| jsx component
       field_name: "multilineinput_", // will add a generated uuidv4
-      Component: MultiLineInput // component not instanciated
+      Component: MultiLineInput, // component not instanciated
     },
     {
       key: "Rate",
@@ -160,7 +160,7 @@ function _defaultItems() {
       // description: "toolbox.textInput.description", // desciption under input on toolbox
       icon: <Avatar icon="star" />, // this will go to Dom so can be string|| jsx component
       field_name: "rate_", // will add a generated uuidv4
-      Component: Rate // component not instanciated
+      Component: Rate, // component not instanciated
     },
     {
       key: "DatePicker",
@@ -169,8 +169,8 @@ function _defaultItems() {
       // description: "toolbox.textInput.description", // desciption under input on toolbox
       icon: <Avatar icon="calendar" />, // this will go to Dom so can be string|| jsx component
       field_name: "datepicker_", // will add a generated uuidv4
-      Component: DatePicker // component not instanciated
-    }
+      Component: DatePicker, // component not instanciated
+    },
   ];
 }
 

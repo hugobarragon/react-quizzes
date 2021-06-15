@@ -64,7 +64,7 @@ const modules = {
   },
 };
 
-export default forwardRef((props: any, ref) => {
+export default forwardRef((props: any, ref: any) => {
   const {
     value,
     defaultValue,
@@ -93,7 +93,7 @@ export default forwardRef((props: any, ref) => {
   }
   return (
     <Tabs
-      ref={ref as any}
+      // ref={ref}
       onChange={setLanguage}
       activeKey={currentLanguage}
       tabBarExtraContent={
