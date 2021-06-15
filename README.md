@@ -20,6 +20,7 @@ Advantages:
 - Internationalization on questions and answers
 - Internationalization on Builder
 - Centralized form builder and from delivery
+- Drag & Drop to order/sort questions on `<QuizzBuilder/>`
 
 ## Installation
 
@@ -48,13 +49,13 @@ import { QuizzBuilder } from "react-quizzes" <QuizzBuilder onChange={(QuizzData)
 
 QuizzBuilder component objective is to provide the user a nice and smooth interface to build quizzes
 
-| Props          | Type            | Default                                                                        | Description                                                                      |
-| -------------- | --------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
-| `onChange`     | `Function`      | ``                                                                             | will returns builded quizz in QuizzData type                                     |
-| `initialValue` | `QuizzData`     | `` | initial value to QuizzBuilder, useful if user wants to edit a saved quizz |
-| `toolBox`      | `QuizzToolBox`  | `default QuizzToolBox`                                                         | list of inputs to use, defaults to react-quizz but custom inputs can be supplied |
-| `language`     | `string`        | `en`                                                                           | Language that QuizzBuilder will show                                             |
-| `messages`     | `QuizzMessages` | `default QuizzMessages`                                                        | Object with each language and each language with each text translation           |
+| Props          | Type            | Default                 | Description                                                                      |
+| -------------- | --------------- | ----------------------- | -------------------------------------------------------------------------------- |
+| `onChange`     | `Function`      | ``                      | will returns builded quizz in QuizzData type                                     |
+| `initialValue` | `QuizzData`     | ``                      | initial value to QuizzBuilder, useful if user wants to edit a saved quizz        |
+| `toolBox`      | `QuizzToolBox`  | `default QuizzToolBox`  | list of inputs to use, defaults to react-quizz but custom inputs can be supplied |
+| `language`     | `string`        | `en`                    | Language that QuizzBuilder will show                                             |
+| `messages`     | `QuizzMessages` | `default QuizzMessages` | Object with each language and each language with each text translation           |
 
 # Quiz
 
@@ -87,7 +88,7 @@ There is a prop `wrappedComponentRef` that gives you access to make basically an
 ```jsx
 import { Quiz } from "react-quizzes";
 
-saveQuizRef = quizRef => {
+saveQuizRef = (quizRef) => {
   // saves Quizz component ref
   this.quizRef = quizRef;
 };
@@ -116,7 +117,6 @@ handleCustomSubmit = () => {
 
 New languages support can be added or replace the existing ones  
 [Existing translations](./src/translations/TranslatedText.tsx#defaultMessages)
-
 
 [![Edit react-quizzesExample RU locale](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-quizzesexample-ru-locale-wx50m?fontsize=14&hidenavigation=1&theme=dark)
 
@@ -199,3 +199,21 @@ but if you need a custom one follow antd-design guidelines and probably you will
 # License
 
 MIT License
+
+# DEV
+
+Start project
+
+```
+  npm i
+  npm start
+```
+
+# Build lib
+
+Start project
+
+```
+  npm i
+  npm build
+```
