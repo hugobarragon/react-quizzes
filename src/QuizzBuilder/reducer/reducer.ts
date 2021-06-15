@@ -56,6 +56,22 @@ export function reducer(state: IState, action: IActions) {
       return new_state.set("data", new_data);
     }
 
+    case "MOVE_ELEMENT": {
+      const new_state = mapClone(state);
+      const new_data = new_state.get("data");
+      const { newIndex, oldIndex } = action;
+
+      if (newIndex >= new_data.length) {
+        var k = newIndex - new_data.length + 1;
+        while (k--) {
+          new_data.push(undefined);
+        }
+      }
+      new_data.splice(newIndex, 0, new_data.splice(oldIndex, 1)[0]);
+
+      return new_state.set("data", new_data);
+    }
+
     default:
       throw new Error("unkown reducer action type");
   }

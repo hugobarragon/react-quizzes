@@ -41,7 +41,7 @@ const text_size = [
   "72px",
   "80px",
   "88px",
-  "96px"
+  "96px",
 ];
 Size.whitelist = text_size;
 Quill.register(Size, true);
@@ -56,12 +56,12 @@ const modules = {
         { list: "ordered" },
         { list: "bullet" },
         { indent: "-1" },
-        { indent: "+1" }
+        { indent: "+1" },
       ],
       ["link" /* 'image', 'video' */],
-      ["clean"]
-    ]
-  }
+      ["clean"],
+    ],
+  },
 };
 
 export default forwardRef((props: any, ref) => {
@@ -72,7 +72,7 @@ export default forwardRef((props: any, ref) => {
     currentLanguage,
     setLanguage,
     onNewLanguage,
-    onRemoveLanguage
+    onRemoveLanguage,
   } = props;
   const questionLanguages: Array<string> = Object.keys(value);
 
@@ -100,7 +100,7 @@ export default forwardRef((props: any, ref) => {
         <AddDropdown disabled={questionLanguages} onChange={onNewLanguage} />
       }
     >
-      {questionLanguages.map(lang => (
+      {questionLanguages.map((lang) => (
         <TabPane
           // native language name
           tab={
@@ -112,7 +112,7 @@ export default forwardRef((props: any, ref) => {
                   title={<TranslatedText id="confirm.action" />}
                   okText={<TranslatedText id="btn.yes" />}
                   cancelText={<TranslatedText id="btn.no" />}
-                  onConfirm={e => {
+                  onConfirm={(e) => {
                     preventPropagation(e);
                     onRemoveLanguage(lang);
                   }}
