@@ -20,6 +20,7 @@ Advantages:
 - Internationalization on questions and answers
 - Internationalization on Builder
 - Centralized form builder and from delivery
+- Drag & Drop to order/sort questions on `<QuizzBuilder/>`
 
 ## Installation
 
