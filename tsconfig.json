@@ -25,5 +25,6 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": ["src/index.tsx"]
 }

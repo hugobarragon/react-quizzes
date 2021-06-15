@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/hugobarragon/react-quizzes",
   "dependencies": {
+    "@types/hoist-non-react-statics": "^3.3.1",
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.isequal": "^4.5.5",
     "@types/node": "12.12.3",
@@ -54,7 +55,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "tsc -p .",
+    "build": "tsc -p ./tsconfig.compile.json",
     "postbuild": "copyfiles  -u 1 src/**/*.css lib/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
