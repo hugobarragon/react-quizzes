@@ -21,13 +21,8 @@ interface DragItem {
 export default (props: PropsWithChildren<CardProps>) => {
   const { id, index, moveCard, children } = props;
   const ref = useRef<HTMLDivElement>(null);
-  const [{ handlerId }, drop] = useDrop({
+  const [, drop] = useDrop({
     accept: ItemTypes.CARD,
-    collect(monitor) {
-      return {
-        handlerId: monitor.getHandlerId(),
-      };
-    },
     hover(item: DragItem, monitor: DropTargetMonitor) {
       if (!ref.current) {
         return;
@@ -79,10 +74,7 @@ export default (props: PropsWithChildren<CardProps>) => {
   });
 
   const [{ isDragging }, drag] = useDrag({
-    type: ItemTypes.CARD,
-    item: () => {
-      return { id, index };
-    },
+    item: { type: ItemTypes.CARD, id, index },
     collect: (monitor: any) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -91,7 +83,7 @@ export default (props: PropsWithChildren<CardProps>) => {
   const opacity = isDragging ? 0 : 1;
   drag(drop(ref));
   return (
-    <div ref={ref} style={{ opacity }} data-handler-id={handlerId}>
+    <div ref={ref} style={{ opacity }}>
       {children}
     </div>
   );
