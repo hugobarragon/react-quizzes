@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { FormComponentProps } from "antd/lib/form/Form";
+import { FormProps } from "antd/es/form";
 import { Form, Checkbox } from "antd";
 import QuillFormInput from "./CustomFormInput/QuillFormInput";
 import TranslatedText from "../../../../../../translations/TranslatedText";
@@ -8,7 +8,7 @@ import cloneDeep from "lodash.clonedeep";
 
 // this must be a class component because of parent components acessing the prop "wrappedComponentRef"
 // to be able to access form props and make a custom submit on parent for example.
-interface DrawerFormProps extends FormComponentProps {
+interface DrawerFormProps extends FormProps {
   [k: string]: any;
 }
 class DrawerForm extends PureComponent<DrawerFormProps, any> {
@@ -19,7 +19,7 @@ class DrawerForm extends PureComponent<DrawerFormProps, any> {
 
     this.state = {
       languagesList,
-      currentLanguage: languagesList[0]
+      currentLanguage: languagesList[0],
     };
   }
 
@@ -46,7 +46,7 @@ class DrawerForm extends PureComponent<DrawerFormProps, any> {
 
     setFieldsValue({ questions, options });
     this.setState({
-      languagesList: Object.keys(questions)
+      languagesList: Object.keys(questions),
     });
   };
 
@@ -73,7 +73,7 @@ class DrawerForm extends PureComponent<DrawerFormProps, any> {
     this.setState(
       {
         currentLanguage: listLanguages[0],
-        languagesList: listLanguages
+        languagesList: listLanguages,
       },
       () => {
         // fix's bug that some times one of the updates was lost
@@ -86,7 +86,7 @@ class DrawerForm extends PureComponent<DrawerFormProps, any> {
     const {
         form,
         // toolboxData,
-        inputData
+        inputData,
       } = this.props,
       { currentLanguage, languagesList } = this.state,
       { getFieldDecorator } = form,
@@ -97,7 +97,7 @@ class DrawerForm extends PureComponent<DrawerFormProps, any> {
         <Form.Item label={<TranslatedText id="settings.form.questions" />}>
           {getFieldDecorator("questions", {
             initialValue: questions,
-            rules: [{ required: true, message: "Required field" }]
+            rules: [{ required: true, message: "Required field" }],
           })(
             <QuillFormInput
               currentLanguage={currentLanguage}
@@ -112,7 +112,7 @@ class DrawerForm extends PureComponent<DrawerFormProps, any> {
           <Form.Item label={<TranslatedText id="settings.form.options" />}>
             {getFieldDecorator("options", {
               initialValue: options,
-              rules: [{ required: true, message: "Required field" }]
+              rules: [{ required: true, message: "Required field" }],
             })(
               <OptionsInput
                 languagesList={languagesList}
@@ -125,7 +125,7 @@ class DrawerForm extends PureComponent<DrawerFormProps, any> {
         <Form.Item>
           {getFieldDecorator("required", {
             initialValue: required,
-            valuePropName: "checked"
+            valuePropName: "checked",
           })(
             <Checkbox>
               <TranslatedText id="settings.form.required" />

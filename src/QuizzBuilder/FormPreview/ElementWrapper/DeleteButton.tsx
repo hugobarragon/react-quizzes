@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import Button from "antd/es/button/index";
-import Popconfirm from "antd/es/popconfirm/index";
+import { Button, Popconfirm } from "antd";
 import { deleteElement } from "../../reducer/actions";
 import QuizzContext, { IQuizzBuilderContext } from "../../../QuizzContext";
 import TranslatedText from "../../../translations/TranslatedText";
@@ -18,7 +17,7 @@ export default (props: any) => {
       okText={<TranslatedText id="btn.yes" />}
       cancelText={<TranslatedText id="btn.no" />}
     >
-      <Button type="danger" icon="delete" shape="circle" />
+      <Button type="primary" danger icon="delete" shape="circle" />
     </Popconfirm>
   );
 };

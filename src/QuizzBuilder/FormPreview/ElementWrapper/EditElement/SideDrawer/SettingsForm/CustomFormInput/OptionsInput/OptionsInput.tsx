@@ -11,13 +11,8 @@ import AddInputOption from "./AddInputOption";
 const { TabPane } = Tabs;
 
 export default forwardRef((props: any, ref) => {
-  const {
-    value,
-    onChange,
-    currentLanguage,
-    setLanguage,
-    languagesList
-  } = props;
+  const { value, onChange, currentLanguage, setLanguage, languagesList } =
+    props;
 
   // handles on change ofr text and value
   function onChangeInput(index: number, content: string, language?: string) {
@@ -83,7 +78,7 @@ export default forwardRef((props: any, ref) => {
                   <Input
                     key={i}
                     value={option.text[language]}
-                    onChange={e => onChangeInput(i, e.target.value, language)}
+                    onChange={(e) => onChangeInput(i, e.target.value, language)}
                   />
                 ))}
               </TabPane>
@@ -101,14 +96,15 @@ export default forwardRef((props: any, ref) => {
               <Col span={20}>
                 <Input
                   value={option.value}
-                  onChange={e => onChangeInput(i, e.target.value)}
+                  onChange={(e) => onChangeInput(i, e.target.value)}
                 />
               </Col>
               <Col style={{ textAlign: "center" }} span={4}>
                 {i > 0 ? (
                   /* only show delete button if not first option */
                   <Button
-                    type="danger"
+                    type="primary"
+                    danger
                     icon="delete"
                     shape="circle"
                     onClick={() => onDelete(i)}

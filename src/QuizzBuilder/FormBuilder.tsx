@@ -1,7 +1,6 @@
 import React, { useReducer, memo, useEffect } from "react";
 import { reducer, initialState } from "./reducer/reducer";
-import Row from "antd/es/row/index";
-import Col from "antd/es/col/index";
+import { Col, Row } from "antd";
 import ToolBox from "./ToolBoxContainer";
 import FormPreview from "./FormPreview/FormPreview";
 import QuizzContext, { getDefaultContext } from "../QuizzContext";
@@ -9,13 +8,13 @@ import { usePrevious } from "../customHooks";
 import isEqual from "lodash.isequal";
 import "../assets/FormBuilder.css";
 
-export default memo(function(props: any) {
+export default memo(function (props: any) {
   const { onChange, initialValue, ...rest } = props,
     [state, dispatch] = useReducer(reducer, initialState(initialValue)),
     contextValue = {
       ...getDefaultContext(rest),
       state,
-      dispatch
+      dispatch,
     },
     formData = state.get("data");
   const previousFormData = usePrevious(formData);
