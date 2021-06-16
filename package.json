@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/hugobarragon/react-quizzes/issues"
   },
-  "homepage": "https://github.com/hugobarragon/react-quizzes",
+  "homepage": "https://hugobarragon.github.io/react-quizzes/",
   "dependencies": {
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.isequal": "^4.5.5",
