@@ -209,11 +209,20 @@ Start project
   npm start
 ```
 
-# Build lib
+# Compile lib for npm
+
+Compile project
+
+```
+  npm i
+  npm run compile
+```  
+  
+# Deply lib for Github Pages
 
 Start project
 
 ```
   npm i
-  npm build
+  npm run deploy
 ```
