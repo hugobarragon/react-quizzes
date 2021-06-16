@@ -1,7 +1,7 @@
 # react-quizzes
 
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=plastic)](http://opensource.org/licenses/MIT)
-[![npm version](https://img.shields.io/badge/npm-v0.3.0-green.svg?style=plastic)](https://www.npmjs.com/package/react-quizzes)
+[![npm version](https://img.shields.io/badge/npm-v0.3.1-green.svg?style=plastic)](https://www.npmjs.com/package/react-quizzes)
 
 Demo:
 [![Edit react-quizzesExample](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/magical-chandrasekhar-88del?fontsize=14&hidenavigation=1&theme=dark)
