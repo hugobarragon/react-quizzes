@@ -24,7 +24,8 @@ function _defaultItems() {
   // deafult sample question
   const questions = {
     en: "Sample question ?",
-    pt: "Pergunta exemplo ?"
+    pt: "Pergunta exemplo ?",
+    es: "¿Pregunta de ejemplo?"
   };
 
   const options = [
