@@ -71,7 +71,7 @@ console.log("form submited values", values)} />
 | Props          | Type            | Default                 | Description                                                                      |
 | -------------- | --------------- | ----------------------- | -------------------------------------------------------------------------------- |
 | `data`         | `QuizzData`     | ``                      | data to build the final user form to be filled                                   |
-| `onSubmit`     | `Fucntion`      | ``                      | returns the submitted form values                                                |
+| `onSubmit`     | `Function`      | ``                      | returns the submitted form values                                                |
 | `submitButton` | `boolean`       | `true`                  | shows/hides default submit button\*                                              |
 | `toolBox`      | `QuizzToolBox`  | `default QuizzToolBox`  | list of inputs to use, defaults to react-quizz but custom inputs can be supplied |
 | `language`     | `string`        | `en`                    | Language that Quiz questions and options will show                               |
@@ -169,7 +169,7 @@ toolbox.push(
             ...
         },
       // description: "toolbox.headertext.description", // desciption under input on toolbox
-      icon: <Avatar icon="line" />, // this will go to Dom so can be string|| jsx component
+      icon: <Avatar icon="line" />, // this will go to DOM so can be string || jsx component
       field_name: "MyInput_", // will add a generated uuidv4
       Component: MyInput // component not instanciated
     }
@@ -218,7 +218,7 @@ Compile project
   npm run compile
 ```  
   
-# Deply lib for Github Pages
+# Deploy lib for Github Pages
 
 Start project
 
